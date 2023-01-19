@@ -2,6 +2,7 @@
     <form @submit.prevent="ajoutContact">
         <input type="text" placeholder="Nom du contact" v-model="formContact.nom">
         <p>Numéro: {{ formContact.numero }}</p>
+        <p v-if="elementExists">{{ formContact.nom }}</p>
         <div class="keyboard">
             <button @click="ajouterNombre('1')">1</button>
             <button @click="ajouterNombre('2')">2</button>
@@ -14,6 +15,11 @@
             <button @click="ajouterNombre('9')">9</button>
             <button @click="ajouterNombre('0')">0</button>
         </div>
+
+        <!-- <div>
+            <p>{{ formContact.numero }}</p>
+            
+        </div> -->
         
         <button type="submit">Ajouter le contact</button>
     </form>
@@ -26,7 +32,9 @@ export default {
     computed: {
         contacts(){
             return this.$store.state.contacts
-        }      
+        },     
+        
+        
     },
 
     
@@ -53,10 +61,6 @@ export default {
 
             if(this.formContact.numero.length != 10){
                 this.error = true
-                return
-            }
-
-            if (this.formContact.numero.isNaN) {
                 return
             }
 

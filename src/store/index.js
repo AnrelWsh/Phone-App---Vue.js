@@ -22,11 +22,13 @@ export default createStore({
   mutations: {
     ajoutContact(state, contact){
       state.contacts.push(contact)
+      this.commit('elementExists', contact)
     },
 
     nouvelAppel(state, contact) {
       state.journal.push(contact)
     },
+
   },
   actions: {
   },
