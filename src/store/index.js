@@ -6,7 +6,7 @@ export default createStore({
       {
           //id: 1,
           nom: "Nico",
-          numero: "0623456767"
+          numero: "6666666666"
       },
       {
           //id: 2,
