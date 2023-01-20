@@ -8,8 +8,9 @@
   
 
   <div class="contacts" v-for="contact in contacts" :key="contact.id">
-    <div @click="nouvelAppel(contact)">
+    <div >
         <CarteContact :contact="contact"/>
+        <img src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)">
     </div>
   </div>
 </template>
@@ -44,6 +45,8 @@
   }
 </script>
 
-<style>
-  
+<style scoped>
+  img{
+    width: 50px;
+  }
 </style>

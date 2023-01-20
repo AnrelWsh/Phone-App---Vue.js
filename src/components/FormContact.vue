@@ -16,9 +16,11 @@
             <button @click="ajouterNombre('8')">8</button>
             <button @click="ajouterNombre('9')">9</button>
             <button @click="ajouterNombre('0')">0</button>
+            <button @click="suppNombre">supp</button>
         </div>
         
-        <button type="submit">Ajouter un contact</button>
+        <button v-if="this.$route.name === 'contact'" type="submit">Ajouter un contact</button>
+        <button v-else type="submit">vknernrigrjg</button>
     </form>
 </template>
 
@@ -30,26 +32,28 @@ export default {
         contacts(){
             return this.$store.state.contacts
         },     
-        
-        
     },
     
     data() {
+      return {
 
-        return {
+          error: false,
 
-            error: false,
-
-            formContact: {
-                nom: '',
-                numero: '',
-            },
-        }
+          formContact: {
+              nom: '',
+              numero: '',
+          },
+      }
     },
 
     methods: {
+       
         ajouterNombre(input){
             this.formContact.numero += input
+        },
+
+        suppNombre(){
+            this.formContact.numero = this.formContact.numero.slice(0, -1)
         },
 
 
