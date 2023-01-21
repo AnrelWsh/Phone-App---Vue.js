@@ -7,3 +7,9 @@
 *{
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+h1{
+    color: rgb(84, 82, 82);
+    font-weight: bold;
+    font-size: 48px;
+}

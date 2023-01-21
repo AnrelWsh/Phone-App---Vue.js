@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h2>{{contact.nom}}</h2>
-        <h3>{{contact.numero}}</h3>
+        <h2 class="font-bold text-2xl">{{contact.nom}}</h2>
+        <h3 class="font-bold ">{{contact.numero}}</h3>
     </div>
 </template>
 
