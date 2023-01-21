@@ -17,7 +17,7 @@
             <button @click="ajouterNombre('9')">9</button>
             <button></button>
             <button @click="ajouterNombre('0')">0</button>
-            <button @click="suppNombre">supp</button>
+            <button @click="suppNombre"><img src="@/assets/delete.svg" alt="delete digit"></button>
         </div>
         
         <button class="btn-submit" v-if="this.$route.name === 'contact'" type="submit">Ajouter un contact</button>
@@ -114,6 +114,10 @@ button:hover{
     text-decoration: underline;
     box-shadow: none;
     font-weight: bold;
+}
+
+img{    
+    margin: 5px;
 }
 
 
