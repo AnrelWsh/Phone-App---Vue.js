@@ -1,12 +1,12 @@
 <template>
 
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col items-center m-auto">
 
     <div>
       <h1>Contacts</h1>
     </div>
 
-    <div class="flex ">
+    <div class="flex gap-[20vw]">
 
       <div class="flex flex-col items-center">
         <h2 class="font-bold text-[#64676a] text-2xl m-8">Mes contacts</h2>
@@ -14,17 +14,17 @@
           <div class="contacts m-4" v-for="contact in contacts" :key="contact.id">
             <div class="flex gap-8">
                 <CarteContact :contact="contact"/>
-                <img src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)">
+                <img class="cursor-pointer" src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)">
             </div>
           </div>
         </div>
       </div>
 
       
-        <div class=" flex flex-col">
-          <h2 class="font-bold text-[#64676a] text-2xl m-8">Mes contacts</h2>
-          <FormContact/>
-        </div>
+      <div class=" flex flex-col items-center">
+        <h2 class="font-bold text-[#64676a] text-2xl m-8">Nouveau contact</h2>
+        <FormContact/>
+      </div>
 
     </div>
     

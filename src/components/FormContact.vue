@@ -1,9 +1,13 @@
 <template>
     <form @submit.prevent="ajoutContact">
-        <input type="text" placeholder="Nom du contact" v-model="formContact.nom">
-        <p>Numéro: {{ formContact.numero }}</p>
+        <input class="inputName text-xl font-semibold mb-4" type="text" placeholder="Nom du contact" v-model="formContact.nom">
+        <p class="mb-4 text-xl font-semibold"><span class="text-[#e4bf88]">Numéro: </span>{{ formContact.numero }}</p>
         <div v-for="contact in contacts" :key="contact.nom">
-          <p v-if="formContact.numero == contact.numero">{{ contact.nom }}</p>
+            <p class="mb-4 text-xl font-semibold" v-if="formContact.numero == contact.numero">
+                <span v-if="this.$route.name === 'contact'">Ce contact existe déjà: </span>
+                <span v-else>Appeler: </span>
+                <span class="text-[#e4bf88]">{{ contact.nom }}</span>
+            </p>
         </div>
         <div class="keyboard grid grid-cols-3 gap-6">
             <button @click="ajouterNombre('1')">1</button>
@@ -20,8 +24,8 @@
             <button @click="suppNombre"><img src="@/assets/delete.svg" alt="delete digit"></button>
         </div>
         
-        <button class="btn-submit" v-if="this.$route.name === 'contact'" type="submit">Ajouter un contact</button>
-        <button class="btn-submit" v-else type="submit">vknernrigrjg</button>
+        <button class="btn-submit" v-if="this.$route.name === 'contact'" type="submit">Ajouter le contact</button>
+        <button class="btn-submit" v-else type="submit"><img class="cursor-pointer" src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)"></button>
     </form>
 </template>
 
@@ -36,15 +40,15 @@ export default {
     },
     
     data() {
-      return {
+        return {
 
-          error: false,
+            //error: false,
 
-          formContact: {
-              nom: '',
-              numero: '',
-          },
-      }
+            formContact: {
+                nom: '',
+                numero: '',
+            },
+        }
     },
 
     methods: {
@@ -60,14 +64,15 @@ export default {
 
         ajoutContact() {
 
-            if(this.formContact.numero.length != 10){
-                this.error = true
+            if(this.formContact.numero.length != 10 ){
+                //this.error = true
                 return
             }
 
-            if(this.formContact.nom == "" || this.formContact.numero == "") return
-
-            if(this.$store.state.contacts.find((contact) => contact.nom == this.formContact.nom)) return
+            if(this.formContact.nom == "" || this.formContact.numero == "") {
+                //this.error = true
+                return
+            }
 
             this.$store.commit('ajoutContact', this.formContact)
 
@@ -85,6 +90,15 @@ export default {
 </script>
 
 <style scoped>
+.inputName {
+    border-bottom: solid 2px #2c3e50;
+    transition: ease-in-out 250ms;
+}
+.inputName:focus {
+    outline: none;
+    border-bottom: solid 2px #e4bf88;
+    transition: ease-in-out 250ms;
+}
 button{
     font-size:20px;
     color:#e4bf88;
@@ -118,6 +132,7 @@ button:hover{
 
 img{    
     margin: 5px;
+    width: 50px;
 }
 
 
