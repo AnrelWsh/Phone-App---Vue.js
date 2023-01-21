@@ -1,9 +1,12 @@
 <template>
     <div>
-        <h1>Clavier</h1>
-    </div>
+        <div>
+            <h1>Clavier</h1>
+        </div>
 
-    <FormContact/>
+        <FormContact/>
+    </div>
+    
 
 </template>
 <script>

@@ -1,16 +1,17 @@
 <template>
   
   <div>
+    <div>
       <h1>Journal</h1>
+    </div>
+
+    <div v-for="contact in journal" :key="contact.nom" class="journal">
+      <CarteContact :contact="contact"/>
+      <p class="list-group-item" v-show="date"><strong>Le:</strong> {{ date }}</p>
+      <p class="list-group-item" v-show="time"><strong>A:</strong> {{ time }}</p>
+    </div>
   </div>
-
-  <div v-for="contact in journal" :key="contact.nom" class="journal">
-    <CarteContact :contact="contact"/>
-    <p class="list-group-item" v-show="date"><strong>Date:</strong> {{ date }}</p>
-    <p class="list-group-item" v-show="time"><strong>Time:</strong> {{ time }}</p>
-	</div>
-
-  
+    
 </template>
 
 <script>
@@ -35,15 +36,15 @@ export default {
     },
 
     methods:{
-      printDate: function () {
+      printDate() {
         return new Date().toLocaleDateString();
       },
-      printTime: function () {
+      printTime() {
         return new Date().toLocaleTimeString();
       },
     },
 
-    mounted: function () {
+    mounted() {
       this.date = this.printDate();
       this.time = this.printTime();
     },

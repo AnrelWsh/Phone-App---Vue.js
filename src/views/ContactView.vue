@@ -1,18 +1,24 @@
 <template>
 
   <div>
+
+    <div>
       <h1>Contacts</h1>
-  </div>
-
-  <FormContact/>
-  
-
-  <div class="contacts" v-for="contact in contacts" :key="contact.id">
-    <div >
-        <CarteContact :contact="contact"/>
-        <img src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)">
     </div>
+
+    <FormContact/>
+    
+
+    <div class="contacts" v-for="contact in contacts" :key="contact.id">
+      <div >
+          <CarteContact :contact="contact"/>
+          <img src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)">
+      </div>
+    </div>
+
   </div>
+
+  
 </template>
 
 <script>

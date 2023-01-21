@@ -5,7 +5,7 @@
         <div v-for="contact in contacts" :key="contact.nom">
           <p v-if="formContact.numero == contact.numero">{{ contact.nom }}</p>
         </div>
-        <div class="keyboard">
+        <div class="keyboard text-blue-500">
             <button @click="ajouterNombre('1')">1</button>
             <button @click="ajouterNombre('2')">2</button>
             <button @click="ajouterNombre('3')">3</button>
