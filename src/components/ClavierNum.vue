@@ -22,6 +22,10 @@
 
         
         <button class="btn-submit" type="submit" @click="nouvelAppel()"><img class="cursor-pointer w-[50px] m-auto" src="@/assets/appel.svg" alt="Appel"></button>
+
+        <audio id="audioAppel">
+            <source src="@/assets/appel.mp3" type="audio/mpeg">
+        </audio>
         
     </form>
 </template>
@@ -55,9 +59,10 @@ export default {
 
     methods: {
         nouvelAppel() {
+            let audioAppel = document.getElementById("audioAppel")
+            audioAppel.play()
             let inputValue = this.$refs.numInput.value
             this.$store.commit('appelClavier', inputValue)
-            console.log(inputValue)
         },
        
         ajouterNombre(input){

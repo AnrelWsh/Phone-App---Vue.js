@@ -30,9 +30,15 @@ export default {
     methods: {
         ajoutContact() {
 
-            if(this.formContact.numero.length !== 10 ) return
-
-            if(this.formContact.nom == "" || this.formContact.numero == "") return
+            if(this.formContact.nom == "" || this.formContact.numero == ""){
+                alert("Il faut un nom et un numéro voyons!")
+                return
+            }
+            
+            if(this.formContact.numero.length !== 10 ){
+                alert("Un numéro est fait de 10 chiffres voyons!")
+                return
+            } 
 
             this.$store.commit('ajoutContact', this.formContact)                        
 

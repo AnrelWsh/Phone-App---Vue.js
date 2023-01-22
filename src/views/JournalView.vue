@@ -5,9 +5,10 @@
       <h1>Journal</h1>
     </div>
 
-    <div v-for="contact in journal" :key="contact.numero" class="journal">
+    <div v-for="contact in journal" :key="contact.numero" class="journal ">
       <CarteContact :contact="contact"/>
       <div>{{contact.date}}</div>
+      <hr>
     </div>
 
     
