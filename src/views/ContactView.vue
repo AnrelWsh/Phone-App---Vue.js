@@ -14,7 +14,6 @@
           <div class="contacts m-4" v-for="contact in contacts" :key="contact.id">
             <div class="flex gap-8">
                 <CarteContact :contact="contact"/>
-                <img class="cursor-pointer" src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)">
             </div>
           </div>
         </div>
@@ -51,17 +50,9 @@
           return this.$store.state.journal
         }
     },
-
-    methods: {
-			nouvelAppel(contact) {
-				this.$store.commit('nouvelAppel', contact)
-			}
-		},
   }
 </script>
 
 <style scoped>
-  img{
-    width: 50px;
-  }
+
 </style>

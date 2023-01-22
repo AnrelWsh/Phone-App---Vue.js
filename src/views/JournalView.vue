@@ -1,15 +1,16 @@
 <template>
   
-  <div>
+  <div class="flex flex-col items-center m-auto">
     <div>
       <h1>Journal</h1>
     </div>
 
-    <div v-for="contact in journal" :key="contact.nom" class="journal">
+    <div v-for="contact in journal" :key="contact.numero" class="journal">
       <CarteContact :contact="contact"/>
-      <p class="list-group-item" v-show="date"><strong>Le:</strong> {{ date }}</p>
-      <p class="list-group-item" v-show="time"><strong>A:</strong> {{ time }}</p>
+      <div>{{contact.date}}</div>
     </div>
+
+    
   </div>
     
 </template>
@@ -24,29 +25,10 @@ export default {
     CarteContact
   },
 
-  data: () => ({
-          time: '',
-          year: '',
-        }),
-
   computed:{
         journal() {
           return this.$store.state.journal
         }
-    },
-
-    methods:{
-      printDate() {
-        return new Date().toLocaleDateString();
-      },
-      printTime() {
-        return new Date().toLocaleTimeString();
-      },
-    },
-
-    mounted() {
-      this.date = this.printDate();
-      this.time = this.printTime();
     },
 }
 </script>

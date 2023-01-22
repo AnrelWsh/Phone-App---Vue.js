@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="flex flex-col items-center m-auto">
         <div>
             <h1>Clavier</h1>
         </div>
