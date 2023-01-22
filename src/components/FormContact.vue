@@ -34,13 +34,19 @@ export default {
                 alert("Il faut un nom et un numéro voyons!")
                 return
             }
+
+            if(isNaN(this.formContact.numero)){
+                alert("Quand on écrit un numéro, on met des chiffres voyons!")
+                return
+            }
             
             if(this.formContact.numero.length !== 10 ){
                 alert("Un numéro est fait de 10 chiffres voyons!")
                 return
             } 
 
-            this.$store.commit('ajoutContact', this.formContact)                        
+            this.$store.commit('ajoutContact', this.formContact)     
+            alert("Contact ajouté!")                   
 
             this.formContact = {
                 nom: '',
