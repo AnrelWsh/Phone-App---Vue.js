@@ -1,7 +1,7 @@
 <template>
-    <form @submit.prevent="ajoutContact">
+    <form @submit.prevent="ajoutContact" class="flex flex-col items-center">
         <input class="inputName text-xl font-semibold mb-4" type="text" placeholder="Nom du contact" v-model="formContact.nom">
-        <input class="mb-4 text-xl font-semibold" type="number" placeholder="Numéro du contact" v-model="formContact.numero">
+        <input class="inputName mb-4 text-xl font-semibold" type="text" placeholder="Numéro du contact" v-model="formContact.numero">
         
         <button class="btn-submit" type="submit">Ajouter le contact</button>
     </form>
@@ -28,35 +28,18 @@ export default {
     },
 
     methods: {
-       
-        ajouterNombre(input){
-            this.formContact.numero += input
-        },
+        ajoutContact() {
 
-        suppNombre(){
-            this.formContact.numero = this.formContact.numero.slice(0, -1)
-        },
-
-
-        ajoutContact(e) {
-
-            if(this.formContact.numero.length < 10 ){
-                return
-            }
+            if(this.formContact.numero.length !== 10 ) return
 
             if(this.formContact.nom == "" || this.formContact.numero == "") return
 
-            this.$store.commit('ajoutContact', this.formContact)
-
-                       
+            this.$store.commit('ajoutContact', this.formContact)                        
 
             this.formContact = {
                 nom: '',
                 numero: ''
             }
-
-
-            e.preventDefault() 
         }
     },
 

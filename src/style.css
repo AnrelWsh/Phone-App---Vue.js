@@ -13,3 +13,17 @@ h1{
     font-weight: bold;
     font-size: 48px;
 }
+
+.navBtn{
+    color: rgb(84, 82, 82);
+    font-size: 20px;
+    padding: 8px;
+    font-weight: 500;
+    border: solid 2px rgb(84, 82, 82);
+    background-color: none;
+    transition: ease-in-out 250ms;
+}
+.navBtn:hover{
+    background-color: #e4bf88;
+    transition: ease-in-out 250ms;
+}

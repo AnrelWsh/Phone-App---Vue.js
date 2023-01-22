@@ -6,7 +6,7 @@
       <h1>Contacts</h1>
     </div>
 
-    <div class="flex gap-[20vw]">
+    <div class="flex items-center gap-[20vw]">
 
       <div class="flex flex-col items-center">
         <h2 class="font-bold text-[#64676a] text-2xl m-8">Mes contacts</h2>
@@ -20,11 +20,10 @@
         </div>
       </div>
 
-      
-      <div class=" flex flex-col items-center">
-        <h2 class="font-bold text-[#64676a] text-2xl m-8">Nouveau contact</h2>
-        <FormContact/>
+      <div>
+        <router-link class="navBtn" to="/nouveaucontact">Nouveau Contact</router-link>
       </div>
+      
 
     </div>
     
@@ -35,14 +34,12 @@
 
 <script>
   import CarteContact from "@/components/CarteContact.vue"
-  import FormContact from "@/components/FormContact.vue"
 
   export default {
     name: 'ContactView',
 
     components: {
-            CarteContact,
-            FormContact
+            CarteContact
         },
 
     computed:{
