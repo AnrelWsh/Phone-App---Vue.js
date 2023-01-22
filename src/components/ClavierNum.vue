@@ -1,9 +1,31 @@
 <template>
     <form @submit.prevent="ajoutContact">
         <input class="inputName text-xl font-semibold mb-4" type="text" placeholder="Nom du contact" v-model="formContact.nom">
-        <input class="mb-4 text-xl font-semibold" type="number" placeholder="Numéro du contact" v-model="formContact.numero">
+        <p class="mb-4 text-xl font-semibold"><span class="text-[#e4bf88]">Numéro: </span>{{ formContact.numero }}</p>
+        <div v-for="contact in contacts" :key="contact.nom">
+            <p class="mb-4 text-xl font-semibold" v-if="formContact.numero == contact.numero">
+                <span v-if="this.$route.name === 'contact'">Ce contact existe déjà: </span>
+                <span v-else>Appeler: </span>
+                <span class="text-[#e4bf88]">{{ contact.nom }}</span>
+            </p>
+        </div>
+        <div class="keyboard grid grid-cols-3 gap-6">
+            <button @click="ajouterNombre('1')">1</button>
+            <button @click="ajouterNombre('2')">2</button>
+            <button @click="ajouterNombre('3')">3</button>
+            <button @click="ajouterNombre('4')">4</button>
+            <button @click="ajouterNombre('5')">5</button>
+            <button @click="ajouterNombre('6')">6</button>
+            <button @click="ajouterNombre('7')">7</button>
+            <button @click="ajouterNombre('8')">8</button>
+            <button @click="ajouterNombre('9')">9</button>
+            <button>*</button>
+            <button @click="ajouterNombre('0')">0</button>
+            <button @click="suppNombre"><img src="@/assets/delete.svg" alt="delete digit"></button>
+        </div>
         
-        <button class="btn-submit" type="submit">Ajouter le contact</button>
+        <button class="btn-submit" v-if="this.$route.name === 'contact'" type="submit">Ajouter le contact</button>
+        <button class="btn-submit" v-else type="submit"><img class="cursor-pointer" src="@/assets/appel.svg" alt="Appel" @click="nouvelAppel(contact)"></button>
     </form>
 </template>
 

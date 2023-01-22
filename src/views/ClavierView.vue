@@ -4,20 +4,20 @@
             <h1>Clavier</h1>
         </div>
 
-        <FormContact/>
+        <ClavierNum/>
     </div>
     
 
 </template>
 <script>
 
-import FormContact from "@/components/FormContact.vue"
+import ClavierNum from "@/components/ClavierNum.vue"
 
 export default {
     name: 'ClavierView',
 
     components:{
-        FormContact
+        ClavierNum
     }
 }
 </script>
